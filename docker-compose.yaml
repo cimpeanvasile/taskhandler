@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  dev:
+    container_name: devbox
+    image: "erlang:25"
+    stdin_open: true
+    tty: true
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/taskhandler
+  run:
+    container_name: taskhandler
+    build: .
+    ports:
+      - 8080:8080
+    tty: true
+
